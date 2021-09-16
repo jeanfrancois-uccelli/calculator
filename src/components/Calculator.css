@@ -1,15 +1,14 @@
 .calculator {
     width: 20rem;
-    height: 30rem;
     background-color: lightcyan;
     display: grid;
-    padding: 1%;
+    padding: 2%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 15px auto;
     border: ridge;
   }
   
@@ -51,4 +50,5 @@
   .result {
     min-height: 3rem;
     color: #666666;
+    margin-left: auto;
   }
