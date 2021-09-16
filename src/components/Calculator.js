@@ -3,6 +3,7 @@ import TheTitle from "./TheTitle";
 import BeautifullScreen from "./BeautifullScreen";
 import AmazingNumberButton from "./AmazingNumberButton";
 import MagnificientEqualButton from "./MagnificientEqualButton";
+import ItSOverNineThousand from "./ItSOverNineThousand";
 import "./Calculator.css";
 
 /* eslint no-eval: 0 */
@@ -38,7 +39,8 @@ function Calculator() {
         {prevResult ? <div>{prevResult}</div> : <div>{calcul}</div>}
 
         <div className="result">
-          <BeautifullScreen resultat={result} />
+            {result>9000 ? <ItSOverNineThousand title="It's over 9000 !!!" /> : 
+          <BeautifullScreen resultat={result} />}
         </div>
       </div>
       <div className="calculator-keypad">
