@@ -12,6 +12,7 @@ function Calculator() {
   const [calcul, setCalcul] = useState("");
   const [result, setResult] = useState("0");
   const [prevResult, setPrevResult] = useState("");
+  const [memoryResult, setMemoryResult] = useState({});
 
   const Clear = () => {
     setCalcul("");
@@ -20,9 +21,10 @@ function Calculator() {
   };
 
   const Calculate = (keyValue) => {
-    prevResult ? setPrevResult("") : setPrevResult(prevResult)
-    result !=="" ? setCalcul("") : setCalcul(calcul.concat(keyValue))
-    setCalcul(calcul.concat(keyValue))
+    setPrevResult("");
+    setResult("");
+    result !== "" ? setCalcul("") : setCalcul(calcul.concat(keyValue));
+    setCalcul(calcul.concat(keyValue));
   };
 
   const Result = () => {
@@ -31,21 +33,29 @@ function Calculator() {
     setResult(eval(calcul));
   };
 
+  const MemoryResults = () => {
+    setMemoryResult(prevResult.concat(`= ${result}`));
+  };
+
   return (
     <div className="calculator">
       <TheTitle title="Calculator 9000" />
-
+      {memoryResult !=="" ? console.warn(memoryResult) : ""}
       <div className="calculator-input">
         {prevResult ? <div>{prevResult}</div> : <div>{calcul}</div>}
 
         <div className="result">
-            {result>9000 ? <ItSOverNineThousand title="It's over 9000 !!!" /> : 
-          <BeautifullScreen resultat={result} />}
+          {result > 9000 ? (
+            <ItSOverNineThousand title="It's over 9000 !!!" />
+          ) : (
+            <BeautifullScreen resultat={result} />
+          )}
         </div>
       </div>
       <div className="calculator-keypad">
         <div className="keys-function">
           <AmazingNumberButton keyValue={"c"} onClick={Clear} />
+          <AmazingNumberButton keyValue={"Mem"} onClick={MemoryResults} />
         </div>
         <div className="keys-operators">
           <AmazingNumberButton keyValue="+" onClick={Calculate} />

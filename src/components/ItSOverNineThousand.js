@@ -1,10 +1,10 @@
-import React from 'react';
-import './ItSOverNineThousand.css'
+import React from "react";
+import "./ItSOverNineThousand.css";
 
-export default function ItSOverNineThousand (props) {
-    return (
+export default function ItSOverNineThousand(props) {
+  return (
     <div>
-        <p className="paragraph">{props.title}</p>
+      <p className="paragraph">{props.title}</p>
     </div>
-    )
+  );
 }
